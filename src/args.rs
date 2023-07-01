@@ -1,6 +1,9 @@
 use clap::Parser;
 
-#[derive(Parser, Debug)]
+use crate::models::base::FreeTemplate;
+
+
+#[derive(Parser)]
 #[command(
     version="1.0",
     author="Aung Koko Lwin",
@@ -11,7 +14,12 @@ pub struct Args {
     pub config_file: String,
 
     #[arg(short, long)]
-    pub output_file: Option<String>
+    pub output_file: Option<String>,
+
+    #[arg(short, long)]
+    #[clap(value_enum)]
+    pub template: FreeTemplate,
+
 }
 
 

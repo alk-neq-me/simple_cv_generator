@@ -1,19 +1,19 @@
 use serde::{Serialize, Deserialize};
 
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Deserialize, Serialize)]
 pub enum MarrieStatus {
     Single,
     Married,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Deserialize, Serialize)]
 pub enum Gender {
     Male,
     Female
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Deserialize, Serialize)]
 pub struct Basic {
     pub name: String,
     pub photo: String,
