@@ -1,9 +1,12 @@
 use lazy_static::lazy_static;
+use serde::Serialize;
 use serde::de::DeserializeOwned;
-use tera::{Context, Tera, Error};
+use tera::{Tera, Error};
 use toml;
 use std::fs;
 use std::process::exit;
+
+use crate::models::base::get_context;
 
 
 lazy_static! {
@@ -15,11 +18,8 @@ lazy_static! {
     };
 }
 
-pub trait Generate {
-    fn get_context(&self) -> Result<Context, Error>;
-}
 
-pub fn generate_context<T: Generate + DeserializeOwned>(config_file: &str) -> Result<String, Error> {
+pub fn generate_context<T: DeserializeOwned + Serialize>(config_file: &str) -> Result<String, Error> {
     let config = match fs::read_to_string(config_file) {
         Ok(data) => data,
         Err(err) => {
@@ -28,14 +28,14 @@ pub fn generate_context<T: Generate + DeserializeOwned>(config_file: &str) -> Re
         }
     };
 
-    let me: Box<dyn Generate> = match toml::from_str::<T>(&config) {
-        Ok(data) => Box::new(data),
+    let me: T = match toml::from_str(&config) {
+        Ok(data) => data,
         Err(err) => {
             eprintln!("could not load toml {err:?}");
             exit(1);
         }
     };
 
-    let context = me.get_context()?;
-    Ok(TEMPLATES.render("basic.html", &context).unwrap())
+    let context = get_context(me)?;
+    Ok(TEMPLATES.render("basic.html", &context)?)
 }
