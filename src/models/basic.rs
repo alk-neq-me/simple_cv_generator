@@ -16,6 +16,11 @@ pub enum Gender {
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Basic {
     pub name: String,
+    pub photo: String,
+    pub phone: String,
+    pub website: Option<String>,
+    pub mail: Option<String>,
+
     pub father: String,
     pub education: String,
     pub gender: Gender,
@@ -25,8 +30,4 @@ pub struct Basic {
     pub experiecnce: String,
     pub address: String,
     pub other_qualifacation: Option<String>,
-    pub phone: String,
-    pub photo: String,
-    pub website: Option<String>,
-    pub mail: Option<String>,
 }

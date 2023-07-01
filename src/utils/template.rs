@@ -19,7 +19,7 @@ lazy_static! {
 }
 
 
-pub fn generate_context<T: DeserializeOwned + Serialize>(config_file: &str) -> Result<String, Error> {
+pub fn generate_context<T: DeserializeOwned + Serialize + std::fmt::Debug>(config_file: &str, template_file: &str) -> Result<String, Error> {
     let config = match fs::read_to_string(config_file) {
         Ok(data) => data,
         Err(err) => {
@@ -37,5 +37,5 @@ pub fn generate_context<T: DeserializeOwned + Serialize>(config_file: &str) -> R
     };
 
     let context = get_context(me)?;
-    Ok(TEMPLATES.render("basic.html", &context)?)
+    Ok(TEMPLATES.render(template_file, &context)?)
 }
