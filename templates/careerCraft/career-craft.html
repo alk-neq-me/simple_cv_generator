@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <style>
+    * {
+      --bg-white: white;
+      --bg-light: #f8fafc;
+    }
+    div[size="A4"] {  
+      padding: 0;
+      background: var(--bg-primary);
+      padding: 20px;
+    }
+
+    .container {
+      padding: 25px;
+      background: red;
+    }
+  </style>
+  <div class="container">
+    {{name}}
+  </div>
+{% endblock %}

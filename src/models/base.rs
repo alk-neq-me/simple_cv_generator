@@ -1,4 +1,4 @@
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 use tera::{Context, Error};
 use clap::ValueEnum;
 
@@ -11,7 +11,35 @@ use clap::ValueEnum;
 #[derive(ValueEnum, Clone)]
 pub enum FreeTemplate {
     Basic,
-    Xross
+    Xross,
+    CareerCraft,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct Education {
+    title: String,
+    description: String,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct Language {
+    title: String,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct ComputerSkill {
+    title: String,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct Experence {
+    title: String,
+    description: String,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct OtherSkill {
+    title: String
 }
 
 pub fn get_context(template: impl Serialize) -> Result<Context, Error> {

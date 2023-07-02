@@ -3,30 +3,19 @@ mod models;
 mod args;
 
 use args::parse_args;
-use models::xross::Xross;
-use utils::{template::generate_context, save::save};
-
-use crate::models::{base::FreeTemplate, basic::Basic};
+use models::{base::FreeTemplate, basic::Basic, xross::Xross, career_craft::CareerCraft};
+use utils::log_link::log_link;
 
 
 fn main() {
     let args = parse_args();
     let file_base = args.output_file.unwrap_or(format!("{}.html", args.config_file.split('.').next().unwrap().to_owned()));
 
+    let config_file = args.config_file;
+
     match args.template {
-        FreeTemplate::Basic => {
-            let cv = generate_context::<Basic>(&args.config_file, "basic.html").unwrap();
-            match save(cv, &file_base) {
-                Ok(path) => println!("file://{}", path.display()),
-                Err(err) => println!("{err:?}")
-            };
-        },
-        FreeTemplate::Xross => {
-            let cv = generate_context::<Xross>(&args.config_file, "xross.html").unwrap();
-            match save(cv, &file_base) {
-                Ok(path) => println!("file://{}", path.display()),
-                Err(err) => println!("{err:?}")
-            };
-        }
+        FreeTemplate::Basic => log_link::<Basic>(&file_base, &config_file, "basic/basic.html"),
+        FreeTemplate::Xross => log_link::<Xross>(&file_base, &config_file, "xross/xross.html"),
+        FreeTemplate::CareerCraft => log_link::<CareerCraft>(&file_base, &config_file, "careerCraft/career-craft.html")
     }
 }

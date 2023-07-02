@@ -1,0 +1,33 @@
+name = "some"
+bio = "graphic designer"
+about = "Welcome to our website! We are a passionate team dedicated to providing quality products/services to our customers. With years of experience in the industry, we strive to meet your needs and exceed your expectations. Our mission is to deliver innovative solutions and ensure customer satisfaction. We believe in fostering strong relationships with our clients and creating a positive impact in the community. Feel free to explore our website and discover more about what we offer. If you have any questions or inquiries, don't hesitate to contact us. We're here to assist you!"
+photo = "ikd"
+location = "location"
+phone = "+82 123 123 123"
+mail = "some@some.com"
+website = ""
+
+[experences]
+  [experences.experences1]
+  title = "job position"
+  description = "description of job experence"
+
+  [experences.experences2]
+  title = "job position 2"
+  description = "description of job experence 2"
+
+[educations]
+    [educations.educations1]
+    title = "milemora university"
+    description = "Business Administration career, in progress."
+    [educations.educations2]
+    title = "brayershire college"
+    description = "2017 - 2021"
+
+[languages]
+  [languages.languages1]
+  title = "Native burmese"
+  [languages.languages2]
+  title = "Advanced korean"
+
+[skills]

@@ -2,21 +2,20 @@ use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
 
-use super::base::{Education, Language, ComputerSkill, Experence};
-
+use super::base::{Experence, Education, OtherSkill, Language};
 
 #[derive(Deserialize, Serialize)]
-pub struct Xross {
+pub struct CareerCraft {
     pub name: String,
+    pub bio: String,
     pub photo: String,
+    pub about: String,
+    pub experences: HashMap<String, Experence>,
+    pub educations: HashMap<String, Education>,
     pub location: String,
     pub phone: String,
     pub mail: Option<String>,
     pub website: Option<String>,
-    pub bio: Option<String>,
-    pub educations: HashMap<String, Education>,
-    pub profile_content: String,
+    pub skills: HashMap<String, OtherSkill>,
     pub languages: HashMap<String, Language>,
-    pub computer_skills: HashMap<String, ComputerSkill>,
-    pub experences: HashMap<String, Experence>,
 }
