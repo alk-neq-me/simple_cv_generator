@@ -96,9 +96,9 @@ td {
 
     <tr>
       <td class="key">Experiecnce</td>
-      <td class="value">
+      <td>
           {% for _, e in experences %}
-            <p>{{e}}</p>
+        <span class="value">{{e.title}}: {{e.description}}</span><br/>
           {% endfor %}
       </td>
     </tr>

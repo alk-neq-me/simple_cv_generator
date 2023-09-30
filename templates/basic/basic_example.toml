@@ -1,14 +1,21 @@
-father = "cap"
+father = "Cap"
 education = "School"
 gender = "Female"
 marrie_status = "Single"
-nrc = "195184"
-birth = "1998"
-experiecnce = "my best"
-address = "yangon"
-other_qualifacation = "test qua"
+nrc = "ID:123456"
+birth = "1995-02-15"
+address = "Daejeon, South Korea"
 
 phone = "+82 123 123 123"
-name = "some"
-photo = "https://media.kbizoom.com/media/2022/12/09083619/cynthia-2-291222.webp"
-mail = "hello@reallygreatsite.com"
+name = "Some"
+photo = "https://someurl.jpg"
+mail = "some@gmail.com"
+website = "https://somelink"
+
+[other_qualifacations]
+  [other_qualifacations.other_qualifacations1]
+  title = "Art"
+  [other_qualifacations.other_qualifacations2]
+  title = "Cooking"
+
+[experences]

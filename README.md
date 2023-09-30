@@ -24,7 +24,7 @@ To get this project up and running on your local machine, follow the instruction
 
 Make sure you have the following tools and dependencies installed on your system:
 
-- [Rust](https://)
+- [Rust](https://www.rust-lang.org/)
 
 ### Installation
 
@@ -68,7 +68,8 @@ vim ./config/my_basic.toml
 ### Compile toml to your resume html file
 ```sh
 # basic template
-cargo run --release -- --config-file ./config/my_basic.toml --template basic --output-file ./output/my_basic.html
+cargo run --release -- --config-file ./config/basic_config.toml --template basic
+# cargo run --release -- --config-file ./config/my_basic.toml --template basic --output-file ./output/my_basic.html
 ```
 
 ---
