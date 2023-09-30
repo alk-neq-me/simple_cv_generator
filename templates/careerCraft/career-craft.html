@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700&display=swap'); * {
+      --bg-white: white;
+      --bg-light: #f8fafc;
+    }
+
+    body {
+      background: gray;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+
+    div[size="A4"] {  
+      padding: 0;
+      background: var(--bg-primary);
+      padding: 20px;
+    }
+
+    .p-0 { padding: 0 }
+    .m-0 { padding: 0 }
+
+    .bar-wrpper {
+      position: absolute;
+      border: 2px solid gray;
+      width: 90%;
+      height: 287px;
+      margin: 40px 35px;
+      border-top-left-radius: 150px;
+      border-bottom-left-radius: 150px;
+    }
+
+    .slide {
+      background: var(--bg-light);
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .photo-wrapper {
+      width: 230px;
+      overflow: hidden;
+      height: 230px;
+      border-radius: 100%;
+      margin-top: 70px;
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      object-fit: contain
+    }
+
+    .container {
+      background: var(--bg-white);
+      height: 29.7cm; 
+      position: relative;
+      display: flex;
+      flex-items: center;
+      flex-direction: row;
+    }
+
+    .left-box {
+      width: 80%;
+    }
+
+    .header,
+    .header-light {
+      font-weight: bold;
+      letter-spacing: 0;
+    }
+
+    .header-light {
+      background: var(--bg-light);
+      padding: 1px;
+    }
+
+    ul {
+      word-wrap: break-word;
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      display: flex;
+      font-size: 12pt;
+      padding: 5px 0;
+    }
+
+    ul li::before {
+      content: "• ";
+    }
+
+    .icon-li li svg {
+      margin-right: 10px;
+    }
+
+    .icon-li li::before {
+      content: ""
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+    }
+
+    .name-box {
+      margin-top: 170px;
+      text-align: center;
+      width: 85%;
+    }
+
+    .name-label {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      line-height: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .right-box-container {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+      margin-top: 120px;
+      width: 85%;
+    }
+
+    .right-box p {
+      max-width: 20rem;
+    }
+  </style>
+  <div class="container">
+    <div class="bar-wrpper"></div>
+
+    <div class="slide">
+      <div class="photo-wrapper">
+        <img src="{{photo}}" alt="photo.{{name}}">
+      </div>
+
+      <div class="left-box" style="margin-top: 70px">
+        <h3 class="header">CONTACT</h3>
+        <ul class="icon-li">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M12 2C7.589 2 4 5.589 4 9.995 3.971 16.44 11.696 21.784 12 22c0 0 8.029-5.56 8-12 0-4.411-3.589-8-8-8zm0 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
+            {{location}}
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"></path></svg>
+            {{phone}}
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.7-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z"></path></svg>
+            {{mail}}
+          </li>
+          {% if website %}
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M8.465 11.293c1.133-1.133 3.109-1.133 4.242 0l.707.707 1.414-1.414-.707-.707c-.943-.944-2.199-1.465-3.535-1.465s-2.592.521-3.535 1.465L4.929 12a5.008 5.008 0 0 0 0 7.071 4.983 4.983 0 0 0 3.535 1.462A4.982 4.982 0 0 0 12 19.071l.707-.707-1.414-1.414-.707.707a3.007 3.007 0 0 1-4.243 0 3.005 3.005 0 0 1 0-4.243l2.122-2.121z"></path><path d="m12 4.929-.707.707 1.414 1.414.707-.707a3.007 3.007 0 0 1 4.243 0 3.005 3.005 0 0 1 0 4.243l-2.122 2.121c-1.133 1.133-3.109 1.133-4.242 0L10.586 12l-1.414 1.414.707.707c.943.944 2.199 1.465 3.535 1.465s2.592-.521 3.535-1.465L19.071 12a5.008 5.008 0 0 0 0-7.071 5.006 5.006 0 0 0-7.071 0z"></path></svg>
+            <a href="{{website}}">{{website}}</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+
+      {% if "languages1" in languages %}
+        <div class="left-box">
+          <h3 class="header">LANGUAGE</h3>
+          <ul>
+            {% for _, language in languages %}
+            <li>{{language.title}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if "skills1" in skills %}
+        <div class="left-box">
+          <h3 class="header">SKILLS</h3>
+          <ul>
+            {% for _, skill in skills %}
+            <li>
+              {{skill.title}}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="body">
+      <div class="name-box">
+        <h3 class="name-label">{{name}}</h3>
+        <h3 class="header-light" style="text-align: center;font-weight: normal;">{{bio}}</h3>
+      </div>
+
+      <div class="right-box-container">
+        <div class="right-box">
+          <h3 class="header-light">ABOUT ME</h3>
+          <p>{{about}}</p>
+        </div>
+
+        {% if "experences1" in experences %}
+          <div class="right-box">
+            <h3 class="header-light">EXPERIENCE</h3>
+            {% for _, experence in experences %}
+              <div>
+                <h3 class="p-0 m-0" style="line-height: 1.2rem">{{experence.title}}</h3>
+                <p class="p-0 m-0">{{experence.description}}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if "educations1" in educations %}
+          <div class="right-box">
+            <h3 class="header-light">EDUCATIONS</h3>
+            {% for _, education in educations %}
+              <div>
+                <h3 class="p-0 m-0" style="line-height: 1.2rem">{{education.title}}</h3>
+                <p class="p-0 m-0">{{education.description}}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

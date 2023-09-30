@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+.photo {
+  display: flex;
+  justify-content: right;
+  align-items: start;
+  width: 100%;
+}
+
+.contentt {
+  margin-top: 50px;
+  width: 100%;
+}
+
+img {
+  height: 8rem;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+}
+
+td {
+  width: 40%;
+}
+
+.key::after {
+  content: ":";
+}
+
+.value::before {
+  content: "- ";
+}
+</style>
+<div class="photo">
+  <!-- photo -->
+  <img src="{{photo}}" alt="{{name}}">
+</div>
+
+<div class="contentt">
+  <!-- content -->
+  <table>
+
+    <tr>
+      <td class="key">Name</td>
+        <td class="value">{{name}}</td>
+    </tr>
+
+    <tr>
+      <td class="key">Father Name</td>
+      <td class="value">{{father}}</td>
+    </tr>
+
+    <tr>
+      <td class="key">NRC No</td>
+      <td class="value">{{nrc}}</td>
+    </tr>
+
+    <tr>
+      <td class="key">Date & Birth</td>
+      <td class="value">{{birth}}</td>
+    </tr>
+
+    <tr>
+      <td class="key">Religion</td>
+      <td class="value">Buddhism</td>
+    </tr>
+
+    <tr>
+      <td class="key">Married</td>
+      <td class="value">{{marrie_status}}</td>
+    </tr>
+
+    <tr>
+      <td class="key">National</td>
+      <td class="value">Myanmar</td>
+    </tr>
+
+    <tr>
+      <td class="key">Education</td>
+      <td class="value">{{education}}</td>
+    </tr>
+
+    <tr>
+      <td class="key">Gender</td>
+      <td class="value">{{gender}}</td>
+    </tr>
+
+    <tr>
+      <td class="key">Experiecnce</td>
+      <td class="value">
+          {% for _, e in experences %}
+            <p>{{e}}</p>
+          {% endfor %}
+      </td>
+    </tr>
+
+    <tr>
+      <td class="key">Other Qualifacation</td>
+        <td>
+          {% for _, q in other_qualifacations %}
+            <span class="value">{{q.title}}</span><br/>
+          {% endfor %}
+        </td>
+    </tr>
+
+    <tr>
+      <td class="key">Phone</td>
+      <td class="value">{{phone}}</td>
+    </tr>
+
+    <tr>
+      <td class="key">Address</td>
+      <td class="value">{{address}}</td>
+    </tr>
+
+    <tr>
+      <td class="key">Website or Mail</td>
+      <td class="value">
+        <a href="{{website}}" target="_blank">{{website}}</a><br/>
+        - <a href="mailto:{{mail}}">{{mail}}</a>
+      </td>
+    </tr>
+
+  </table>
+</div>
+{% endblock %}
