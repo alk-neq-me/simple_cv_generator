@@ -51,10 +51,15 @@ cargo run --release --help
 ## Usage
 
 ### Create config file
+
+```sh
+mkdir config/ output/
+touch config/my_basic.toml
+```
+
 ```toml
 # example toml config file for basic template.
 # ./templates/basic/basic_example.toml
-```
 father = "Cap"
 education = "School"
 gender = "Female"
@@ -76,8 +81,6 @@ website = "https://somelink"
   title = "Cooking"
 
 [experences]
-```sh
-mkdir config/ output/
 ```
 
 ### Choose a template
@@ -93,7 +96,7 @@ vim ./config/my_basic.toml
 ### Compile toml to your resume html file
 ```sh
 # basic template
-cargo run --release -- --config-file ./config/basic_config.toml --template basic
+cargo run --release -- --config-file ./config/my_basic.toml --template basic
 # cargo run --release -- --config-file ./config/my_basic.toml --template basic --output-file ./output/my_basic.html
 ```
 
