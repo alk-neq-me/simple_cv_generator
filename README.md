@@ -51,6 +51,31 @@ cargo run --release --help
 ## Usage
 
 ### Create config file
+```toml
+# example toml config file for basic template.
+# ./templates/basic/basic_example.toml
+```
+father = "Cap"
+education = "School"
+gender = "Female"
+marrie_status = "Single"
+nrc = "ID:123456"
+birth = "1995-02-15"
+address = "Daejeon, South Korea"
+
+phone = "+82 123 123 123"
+name = "Some"
+photo = "https://someurl.jpg"
+mail = "some@gmail.com"
+website = "https://somelink"
+
+[other_qualifacations]
+  [other_qualifacations.other_qualifacations1]
+  title = "Art"
+  [other_qualifacations.other_qualifacations2]
+  title = "Cooking"
+
+[experences]
 ```sh
 mkdir config/ output/
 ```
