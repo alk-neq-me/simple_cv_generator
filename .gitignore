@@ -2,3 +2,6 @@ target/
 output/
 config/
 _doc/
+
+templates/xross/
+templates/careerCraft/

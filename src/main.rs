@@ -3,7 +3,7 @@ mod models;
 mod args;
 
 use args::parse_args;
-use models::{base::FreeTemplate, basic::Basic, xross::Xross, career_craft::CareerCraft};
+use models::{base::FreeTemplate, basic::Basic};
 use utils::log_link::log_link;
 
 use std::ffi::OsStr;
@@ -38,7 +38,13 @@ fn main() {
 
     match args.template {
         FreeTemplate::Basic => log_link::<Basic>(&file_base, &config_file, "basic/basic.html"),
-        FreeTemplate::Xross => log_link::<Xross>(&file_base, &config_file, "xross/xross.html"),
-        FreeTemplate::CareerCraft => log_link::<CareerCraft>(&file_base, &config_file, "careerCraft/career-craft.html")
+        FreeTemplate::Xross => {
+            println!("This is premium");
+            // log_link::<Xross>(&file_base, &config_file, "xross/xross.html")
+        },
+        FreeTemplate::CareerCraft => {
+            println!("This is premium");
+            // log_link::<CareerCraft>(&file_base, &config_file, "careerCraft/career-craft.html")
+        }
     }
 }
